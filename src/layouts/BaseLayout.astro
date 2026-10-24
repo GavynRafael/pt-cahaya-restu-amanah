@@ -1,0 +1,58 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl = 'https://cahayarestuamanah.co.id/'
+} = Astro.props;
+
+const siteTitle = `${title} | PT Cahaya Restu Amanah`;
+---
+
+<!doctype html>
+<html lang="id" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{siteTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+    <link rel="canonical" href={canonicalUrl} />
+    
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content="PT Cahaya Restu Amanah" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:description" content={description} />
+    
+
+    <!-- Fonts: Preconnect to Google Fonts for Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0B0B0B" />
+  </head>
+  <body class="bg-cra-black text-cra-silver antialiased selection:bg-cra-gold selection:text-cra-black min-h-screen flex flex-col">
+    <slot />
+  </body>
+</html>

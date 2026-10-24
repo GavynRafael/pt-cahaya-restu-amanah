@@ -1,0 +1,29 @@
+---
+import { getWhatsAppConsultationUrl } from '../lib/constants';
+
+const waUrl = getWhatsAppConsultationUrl();
+---
+
+<aside class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-2" aria-label="Aksi Cepat WhatsApp">
+  <!-- Tooltip hint -->
+  <div class="hidden sm:block px-3 py-1.5 rounded-lg bg-cra-card text-cra-silver border border-cra-gold/30 text-xs shadow-lg animate-bounce">
+    Butuh Bantuan Cepat? <span class="text-cra-gold font-semibold">Chat Admin</span>
+  </div>
+
+  <!-- WhatsApp Action Button -->
+  <a
+    href={waUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-cra-gold-light via-cra-gold to-cra-gold-dark text-cra-black shadow-xl shadow-cra-gold/25 hover:scale-110 active:scale-95 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-cra-gold/40 relative group"
+    aria-label="Konsultasi langsung via WhatsApp dengan Admin PT Cahaya Restu Amanah"
+  >
+    <!-- Pulse Ring -->
+    <span class="absolute inset-0 rounded-full bg-cra-gold/40 animate-ping opacity-75 group-hover:opacity-100" aria-hidden="true"></span>
+
+    <!-- WhatsApp SVG Icon -->
+    <svg class="w-7 h-7 relative z-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.769.814 2.796.814 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.766-5.768-5.766zm3.393 8.163c-.144.405-.837.774-1.17.823-.312.045-.694.072-2.073-.487-1.764-.714-2.898-2.484-2.986-2.602-.088-.118-.711-.947-.711-1.805 0-.858.45-1.28.61-1.455.161-.176.353-.221.47-.221.118 0 .235.001.338.006.107.006.251-.041.393.3.144.347.491 1.2.534 1.288.044.089.073.192.015.309-.059.118-.088.192-.176.294-.088.103-.186.229-.265.308-.089.088-.182.184-.078.362.103.177.458.756.982 1.223.676.602 1.246.788 1.423.876.176.088.279.074.382-.045.103-.117.441-.513.559-.689.117-.176.235-.147.397-.088.161.059 1.028.485 1.205.573.176.088.294.132.338.206.044.074.044.428-.1 1.033z"/>
+    </svg>
+  </a>
+</aside>

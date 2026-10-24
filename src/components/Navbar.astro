@@ -1,0 +1,129 @@
+---
+import { NAV_ITEMS, getWhatsAppConsultationUrl } from '../lib/constants';
+
+const waUrl = getWhatsAppConsultationUrl();
+---
+
+<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-cra-black/90 border-b border-cra-border/80 transition-all">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      
+      <!-- Logo Brand -->
+      <a href="#beranda" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-cra-gold rounded-lg p-1">
+        <!-- Wadah Logo dengan Sudut Membulat Halus (6–8px) -->
+        <div class="p-1 rounded-lg border border-cra-border/80 bg-cra-surface/40 group-hover:border-cra-gold/40 flex items-center justify-center shrink-0 transition-colors">
+          <img
+            src="/images/logo.png?v=2"
+            alt="Logo PT Cahaya Restu Amanah"
+            class="h-10 sm:h-11 w-auto object-contain rounded-md"
+            loading="eager"
+          />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-white font-bold tracking-tight text-base sm:text-lg leading-tight group-hover:text-cra-gold transition-colors">
+            PT CAHAYA RESTU AMANAH
+          </span>
+          <span class="text-cra-gold text-xs font-medium tracking-wider uppercase">
+            Biro Jasa STNK Seluruh Indonesia
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-8" aria-label="Menu Utama">
+        {NAV_ITEMS.map((item) => (
+          <a
+            href={item.href}
+            class="text-sm font-medium text-cra-silver hover:text-cra-gold transition-colors focus:outline-none focus:text-cra-gold"
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="hidden sm:flex items-center gap-4">
+        <a
+          href={waUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center px-4 py-2.5 rounded-lg text-sm font-semibold text-cra-black bg-gradient-to-r from-cra-gold-light via-cra-gold to-cra-gold-dark hover:brightness-110 shadow-md shadow-cra-gold/10 transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cra-gold"
+        >
+          <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.769.814 2.796.814 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.766-5.768-5.766zm3.393 8.163c-.144.405-.837.774-1.17.823-.312.045-.694.072-2.073-.487-1.764-.714-2.898-2.484-2.986-2.602-.088-.118-.711-.947-.711-1.805 0-.858.45-1.28.61-1.455.161-.176.353-.221.47-.221.118 0 .235.001.338.006.107.006.251-.041.393.3.144.347.491 1.2.534 1.288.044.089.073.192.015.309-.059.118-.088.192-.176.294-.088.103-.186.229-.265.308-.089.088-.182.184-.078.362.103.177.458.756.982 1.223.676.602 1.246.788 1.423.876.176.088.279.074.382-.045.103-.117.441-.513.559-.689.117-.176.235-.147.397-.088.161.059 1.028.485 1.205.573.176.088.294.132.338.206.044.074.044.428-.1 1.033z"/>
+          </svg>
+          Konsultasi WhatsApp
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button (Accessible toggle) -->
+      <div class="flex lg:hidden">
+        <button
+          type="button"
+          id="mobile-menu-btn"
+          class="p-2.5 rounded-lg text-cra-silver hover:text-cra-gold hover:bg-cra-surface border border-cra-border focus:outline-none focus:ring-2 focus:ring-cra-gold"
+          aria-expanded="false"
+          aria-label="Buka menu navigasi"
+        >
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <div id="mobile-menu" class="hidden lg:hidden border-b border-cra-border bg-cra-black/95 px-4 pt-3 pb-6 space-y-3">
+    {NAV_ITEMS.map((item) => (
+      <a
+        href={item.href}
+        class="block px-3 py-2 rounded-md text-base font-medium text-cra-silver hover:text-cra-gold hover:bg-cra-surface transition-colors"
+      >
+        {item.label}
+      </a>
+    ))}
+    <div class="pt-4 border-t border-cra-border/60">
+      <a
+        href={waUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center justify-center w-full px-4 py-3 rounded-lg text-base font-semibold text-cra-black bg-gradient-to-r from-cra-gold-light via-cra-gold to-cra-gold-dark shadow-md shadow-cra-gold/10"
+      >
+        Konsultasi WhatsApp (Admin 1)
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+
+  if (menuBtn && menu && iconOpen && iconClose) {
+    menuBtn.addEventListener('click', () => {
+      const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!isExpanded));
+      menu.classList.toggle('hidden');
+      iconOpen.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+    });
+
+    // Close menu when clicking navigation link
+    const mobileLinks = menu.querySelectorAll('a');
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      });
+    });
+  }
+</script>

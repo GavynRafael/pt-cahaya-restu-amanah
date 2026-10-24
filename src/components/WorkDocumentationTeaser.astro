@@ -1,0 +1,105 @@
+---
+import { getWhatsAppConsultationUrl } from '../lib/constants';
+
+const sampleCategories = [
+  {
+    title: 'Pengurusan Mutasi Antar Provinsi',
+    service: 'Mutasi Kendaraan',
+    description: 'Proses penarikan berkas fiskal dan pendaftaran mutasi masuk antar daerah di seluruh Indonesia.',
+    tag: 'Dokumentasi Berkas'
+  },
+  {
+    title: 'Balik Nama Kendaraan & Terbit BPKB',
+    service: 'Balik Nama (BBN-KB)',
+    description: 'Penyelesaian administrasi pengalihan kepemilikan resmi dengan penerbitan STNK dan BPKB baru.',
+    tag: 'Proses Legal'
+  },
+  {
+    title: 'Perpanjangan STNK 5 Tahunan & Cek Fisik',
+    service: 'Ganti STNK 5 Tahunan',
+    description: 'Pendampingan cek fisik nomor rangka & mesin kendaraan hingga pencetakan plat nomor baru.',
+    tag: 'Samsat Resmi'
+  }
+];
+---
+
+<section id="dokumentasi" class="py-24 bg-cra-dark relative border-t border-cra-border/80">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+      <div class="space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cra-surface border border-cra-gold/30 text-cra-gold text-xs font-semibold tracking-wider uppercase">
+          Dokumentasi Pekerjaan
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Transparansi Pengurusan Dokumen
+        </h2>
+        <p class="text-cra-silver/80 text-base max-w-2xl">
+          Dokumentasi nyata tahapan penanganan berkas dan proses legalitas kendaraan para klien yang diproses secara langsung dan tertib administrasi.
+        </p>
+      </div>
+
+      <div class="shrink-0">
+        <a
+          href={getWhatsAppConsultationUrl()}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider text-cra-gold bg-cra-surface hover:bg-cra-card border border-cra-gold/40 hover:border-cra-gold transition-all"
+        >
+          Konsultasi Pengurusan Berkas
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Documentation Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {sampleCategories.map((item) => (
+        <div class="bg-cra-surface rounded-2xl border border-cra-border overflow-hidden hover:border-cra-gold/50 transition-all duration-300 group flex flex-col justify-between">
+          <!-- Abstract Architectural Geometric Placeholder for Work Visual -->
+          <div class="relative h-48 bg-gradient-to-br from-cra-card to-cra-black flex items-center justify-center p-6 border-b border-cra-border/80 overflow-hidden">
+            <!-- Subtle Gold Grid Lines -->
+            <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+            
+            <!-- Minimal Geometric Emblem Placeholder -->
+            <div class="relative z-10 flex flex-col items-center text-center space-y-2">
+              <div class="w-12 h-12 rounded-xl bg-cra-surface border border-cra-gold/40 flex items-center justify-center text-cra-gold shadow-md">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <span class="text-[11px] font-semibold text-cra-gold uppercase tracking-wider">{item.service}</span>
+            </div>
+
+            <div class="absolute top-3 right-3">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cra-black/80 text-cra-silver border border-cra-border">
+                {item.tag}
+              </span>
+            </div>
+          </div>
+
+          <!-- Card Body -->
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-lg font-bold text-white mb-2 group-hover:text-cra-gold transition-colors">
+                {item.title}
+              </h3>
+              <p class="text-cra-silver/75 text-sm leading-relaxed mb-6">
+                {item.description}
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-cra-border/60 flex items-center justify-between text-xs">
+              <span class="text-cra-muted font-medium">Biro Jasa Resmi</span>
+              <span class="text-cra-gold font-semibold">Tersertifikasi Legal</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

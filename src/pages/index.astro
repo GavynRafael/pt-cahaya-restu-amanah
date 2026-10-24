@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import ServicesOverview from '../components/ServicesOverview.astro';
+import AboutTeaser from '../components/AboutTeaser.astro';
+import WorkDocumentationTeaser from '../components/WorkDocumentationTeaser.astro';
+import NewsTeaser from '../components/NewsTeaser.astro';
+import ContactFooter from '../components/ContactFooter.astro';
+import WhatsAppFloating from '../components/WhatsAppFloating.astro';
+
+const pageTitle = "Biro Jasa STNK Seluruh Indonesia";
+const pageDescription = "PT Cahaya Restu Amanah adalah biro jasa profesional dan berbadan hukum resmi untuk pengurusan Pajak, STNK 5 Tahunan, Balik Nama, dan Mutasi kendaraan di seluruh wilayah Indonesia.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- Sticky Header Navigation -->
+  <Navbar />
+
+  <!-- Main Content Areas -->
+  <main class="flex-1">
+    <!-- Hero Section (Pure geometric, no car photos) -->
+    <Hero />
+
+    <!-- 9 Official Services Section -->
+    <ServicesOverview />
+
+    <!-- Company Profile & Operational Details -->
+    <AboutTeaser />
+
+    <!-- Work Documentation Teaser -->
+    <WorkDocumentationTeaser />
+
+    <!-- News & Vehicle Regulation Guidance -->
+    <NewsTeaser />
+  </main>
+
+  <!-- Complete Contact & Footer -->
+  <ContactFooter />
+
+  <!-- Floating Quick-Action WhatsApp Button -->
+  <WhatsAppFloating />
+</BaseLayout>

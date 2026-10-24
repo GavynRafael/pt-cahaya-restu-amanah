@@ -1,0 +1,85 @@
+---
+import { getWhatsAppConsultationUrl } from '../lib/constants';
+
+const newsArticles = [
+  {
+    title: 'Panduan Persyaratan Balik Nama Kendaraan Bermotor (BBN-KB)',
+    category: 'Regulasi & Prosedur',
+    date: 'Informasi Resmi',
+    summary: 'Rincian berkas yang wajib disiapkan meliputi KTP pemilik baru, BPKB asli, STNK asli, serta bukti kuitansi jual beli bermeterai.'
+  },
+  {
+    title: 'Mekanisme Mutasi Kendaraan Masuk & Keluar Antar Daerah',
+    category: 'Layanan Samsat',
+    date: 'Informasi Resmi',
+    summary: 'Tahapan pencabutan berkas fisik di Samsat asal hingga pendaftaran nomor polisi baru di kantor Samsat tujuan domisili pemilik.'
+  },
+  {
+    title: 'Kelengkapan Berkas Ganti Plat & STNK 5 Tahunan',
+    category: 'Pajak Kendaraan',
+    date: 'Informasi Resmi',
+    summary: 'Ketentuan proses cek fisik kendaraan di Samsat, pembayaran PKB, serta pencetakan lembar STNK baru dan plat nomor resmi.'
+  }
+];
+---
+
+<section id="berita" class="py-24 bg-cra-black relative border-t border-cra-border/80">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cra-surface border border-cra-gold/30 text-cra-gold text-xs font-semibold tracking-wider uppercase">
+        Berita & Informasi
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        Informasi & Panduan Dokumen Kendaraan
+      </h2>
+      <p class="text-cra-silver/80 text-base sm:text-lg">
+        Informasi regulasi Samsat dan panduan administrasi kendaraan terkini untuk membantu Anda memahami prosedur kepengurusan berkas.
+      </p>
+    </div>
+
+    <!-- Articles Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {newsArticles.map((article) => (
+        <article class="bg-cra-surface rounded-2xl p-7 border border-cra-border hover:border-cra-gold/50 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 shadow-md">
+          <div>
+            <!-- Category & Date Badge -->
+            <div class="flex items-center justify-between text-xs mb-4">
+              <span class="font-semibold text-cra-gold bg-cra-gold/10 px-2.5 py-1 rounded-md border border-cra-gold/20">
+                {article.category}
+              </span>
+              <span class="text-cra-muted font-mono">{article.date}</span>
+            </div>
+
+            <!-- Title -->
+            <h3 class="text-lg font-bold text-white mb-3 group-hover:text-cra-gold transition-colors leading-snug">
+              {article.title}
+            </h3>
+
+            <!-- Summary -->
+            <p class="text-cra-silver/75 text-sm leading-relaxed mb-6">
+              {article.summary}
+            </p>
+          </div>
+
+          <!-- Bottom Action -->
+          <div class="pt-5 border-t border-cra-border/60">
+            <a
+              href={getWhatsAppConsultationUrl(article.title)}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-cra-gold hover:text-cra-gold-light transition-colors"
+            >
+              <span>Konsultasikan Topik Ini</span>
+              <svg class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,159 @@
+---
+import { COMPANY, SERVICES, NAV_ITEMS, WHATSAPP_BASE_URL_1, WHATSAPP_BASE_URL_2 } from '../lib/constants';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer id="kontak" class="bg-cra-black border-t border-cra-border/80 text-cra-silver pt-20 pb-12 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Top Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-cra-border/60">
+      
+      <!-- Col 1: Brand Info (lg:col-span-4) -->
+      <div class="lg:col-span-4 space-y-5">
+        <div class="flex items-center gap-3">
+          <!-- Wadah Logo dengan Sudut Membulat Halus (6–8px) -->
+          <div class="p-1 rounded-lg border border-cra-border/80 bg-cra-surface/40 flex items-center justify-center shrink-0">
+            <img
+              src="/images/logo.png?v=2"
+              alt="Logo PT Cahaya Restu Amanah"
+              class="h-9 sm:h-10 w-auto object-contain rounded-md"
+              loading="lazy"
+            />
+          </div>
+          <div>
+            <h3 class="text-white font-extrabold tracking-tight text-base sm:text-lg">
+              {COMPANY.name}
+            </h3>
+            <p class="text-xs text-cra-gold font-medium uppercase tracking-wider">
+              {COMPANY.tagline}
+            </p>
+          </div>
+        </div>
+
+        <p class="text-cra-silver/80 text-sm leading-relaxed">
+          Biro jasa pengurusan STNK, BPKB, Pajak, dan mutasi kendaraan seluruh Indonesia yang amanah, profesional, dan berlegalitas resmi.
+        </p>
+
+        <div class="pt-2 text-xs text-cra-muted space-y-1">
+          <div><strong class="text-cra-silver">Jam Buka:</strong> {COMPANY.operationalHours}</div>
+          <div><strong class="text-cra-silver">Libur:</strong> {COMPANY.holidayNote}</div>
+        </div>
+      </div>
+
+      <!-- Col 2: Navigation Links (lg:col-span-2) -->
+      <div class="lg:col-span-2 space-y-4">
+        <h4 class="text-white text-sm font-bold uppercase tracking-wider">
+          Navigasi
+        </h4>
+        <ul class="space-y-2.5 text-sm">
+          {NAV_ITEMS.map((item) => (
+            <li>
+              <a href={item.href} class="hover:text-cra-gold transition-colors">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Col 3: Layanan Ringkas (lg:col-span-3) -->
+      <div class="lg:col-span-3 space-y-4">
+        <h4 class="text-white text-sm font-bold uppercase tracking-wider">
+          Layanan Resmi
+        </h4>
+        <ul class="space-y-2 text-xs text-cra-silver/85">
+          {SERVICES.slice(0, 6).map((service) => (
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-cra-gold/70 shrink-0"></span>
+              <span>{service.title}</span>
+            </li>
+          ))}
+          <li class="text-cra-gold text-xs font-semibold pt-1">
+            <a href="#layanan" class="hover:underline">+ Layanan lainnya</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Kontak & QR WhatsApp Resmi (lg:col-span-3) -->
+      <div class="lg:col-span-3 space-y-4">
+        <h4 class="text-white text-sm font-bold uppercase tracking-wider">
+          Hubungi Admin
+        </h4>
+        
+        <div class="space-y-3 text-xs">
+          <div>
+            <span class="text-cra-muted block">Alamat Kantor:</span>
+            <span class="text-white font-medium block mt-0.5 leading-relaxed">
+              {COMPANY.address}
+            </span>
+          </div>
+
+          <div class="space-y-2 pt-1">
+            <a
+              href={WHATSAPP_BASE_URL_1}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-between p-2.5 rounded-lg bg-cra-surface border border-cra-border hover:border-cra-gold/50 transition-colors group"
+            >
+              <div>
+                <span class="text-[10px] text-cra-gold font-bold uppercase block">Admin 1 (WhatsApp)</span>
+                <span class="text-white font-mono text-xs">{COMPANY.admin1}</span>
+              </div>
+              <span class="text-cra-gold text-xs group-hover:translate-x-0.5 transition-transform">→</span>
+            </a>
+
+            <a
+              href={WHATSAPP_BASE_URL_2}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-between p-2.5 rounded-lg bg-cra-surface border border-cra-border hover:border-cra-gold/50 transition-colors group"
+            >
+              <div>
+                <span class="text-[10px] text-cra-gold font-bold uppercase block">Admin 2 (WhatsApp)</span>
+                <span class="text-white font-mono text-xs">{COMPANY.admin2}</span>
+              </div>
+              <span class="text-cra-gold text-xs group-hover:translate-x-0.5 transition-transform">→</span>
+            </a>
+          </div>
+
+          <!-- Official QR WhatsApp Frame -->
+          <div class="mt-4 p-4 rounded-2xl bg-cra-surface border border-cra-border hover:border-cra-gold/40 transition-colors text-center">
+            <div class="inline-block p-3 bg-white rounded-xl shadow-md">
+              <img
+                src="/images/qr-code.png"
+                alt="QR Code WhatsApp Resmi PT Cahaya Restu Amanah"
+                class="w-32 h-32 sm:w-36 sm:h-36 aspect-square object-contain block mx-auto"
+                width="144"
+                height="144"
+                loading="lazy"
+              />
+            </div>
+            <div class="mt-3 space-y-0.5">
+              <span class="text-xs font-bold text-white block">
+                Scan QR WhatsApp
+              </span>
+              <span class="text-[11px] text-cra-gold block font-medium">
+                Konsultasi Langsung via Ponsel
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright & Compliance -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-cra-muted gap-4">
+      <div>
+        &copy; {currentYear} <strong class="text-cra-silver">{COMPANY.name}</strong>. Hak Cipta Dilindungi Undang-Undang.
+      </div>
+      <div class="text-right">
+        <span>Biro Jasa STNK Terpercaya & Berbadan Hukum Resmi</span>
+      </div>
+    </div>
+
+  </div>
+</footer>

@@ -1,0 +1,74 @@
+---
+import { SERVICES, getWhatsAppConsultationUrl } from '../lib/constants';
+---
+
+<section id="layanan" class="py-24 bg-cra-dark relative border-t border-cra-border/80">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cra-surface border border-cra-gold/30 text-cra-gold text-xs font-semibold tracking-wider uppercase">
+        Layanan Resmi
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        Layanan Biro Jasa STNK Terlengkap
+      </h2>
+      <p class="text-cra-silver/80 text-base sm:text-lg">
+        Seluruh proses pengurusan dokumen kendaraan bermotor ditangani secara profesional, transparan, dan sesuai regulasi Samsat di seluruh Indonesia.
+      </p>
+    </div>
+
+    <!-- 9 Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      {SERVICES.map((service) => {
+        const waLink = getWhatsAppConsultationUrl(service.title);
+        const formattedId = String(service.id).padStart(2, '0');
+
+        return (
+          <article class="flex flex-col justify-between bg-cra-surface rounded-2xl p-7 border border-cra-border hover:border-cra-gold/50 transition-all duration-300 group hover:-translate-y-1 shadow-md hover:shadow-xl hover:shadow-cra-gold/5">
+            <div>
+              <!-- Top Row: Number & Badge -->
+              <div class="flex items-center justify-between mb-5">
+                <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-cra-black border border-cra-border text-cra-gold font-mono">
+                  {formattedId}
+                </span>
+                {service.badge && (
+                  <span class="text-[11px] font-semibold tracking-wide uppercase px-2 py-0.5 rounded bg-cra-gold/15 text-cra-gold border border-cra-gold/30">
+                    {service.badge}
+                  </span>
+                )}
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cra-gold transition-colors">
+                {service.title}
+              </h3>
+
+              <!-- Description -->
+              <p class="text-cra-silver/75 text-sm leading-relaxed mb-6">
+                {service.description}
+              </p>
+            </div>
+
+            <!-- Card Bottom: WhatsApp Consultation Link -->
+            <div class="pt-5 border-t border-cra-border/60">
+              <a
+                href={waLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-between w-full text-xs font-semibold uppercase tracking-wider text-cra-gold hover:text-cra-gold-light transition-colors group/btn py-1"
+                aria-label={`Konsultasi WhatsApp untuk ${service.title}`}
+              >
+                <span>Konsultasikan Layanan</span>
+                <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+
+  </div>
+</section>
